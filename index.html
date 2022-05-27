@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="/bootstrap-5.0.2-dist/css/bootstrap.css">
+
+    <title>Document</title>
+    <style>
+     .registartion{
+       text-align: center;
+      align-items: center;
+     }
+     p{
+       color: rgb(69, 69, 121);
+       font-size: 30px;
+       font-weight: 700;
+     }
+     #formData{
+       margin-top: 25px;
+      font-size: x-large;
+      
+     }
+     .form-control{
+       margin-top: 5px;
+       margin-bottom: 3px;
+     }
+     button{
+       margin-top: 50px;
+     }
+    </style>
+</head>
+<body>
+    <div class="registartion">
+        <p >Registration form</p> 
+    
+        <button style="background-color: rgb(97, 97, 226);width: 190px; height: 30px;;" onclick="gotoRegistrationData()">Show old record</button>
+    
+
+        <form id="formData" >
+            <div class="form-control">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" placeholder="Enter your name" name="name">
+              </div>
+            <div class="form-control">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+            </div>
+            <div class="form-control">
+              <label for="pwd" class="form-label">Password:</label>
+              <input type="password" class="form-control" placeholder="Enter password" name="pswd">
+            </div>
+            <button style="background-color: brown; width: 190px; height: 30px;" onclick="submitData()">Submit</button>
+                     
+          </form>
+
+          
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+    <script>
+         
+        function submitData() { 
+            const form = document.getElementById("formData")
+            const formEntries = new FormData(form).entries();
+
+            const formData = Object.assign(...Array.from(formEntries, ([name, value]) => ({[name]: value})));
+            window.localStorage.setItem("registrationdata", JSON.stringify(formData));
+            location.replace("registration.html")
+            console.log(formData)
+        }
+        function gotoRegistrationData(){
+            location.replace("registration.html")
+        }
+    </script>
+
+</body>
+</html>

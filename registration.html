@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/css/bootstrap.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Form Data.</h1>
+      
+                <div >Name :</div>
+                <div  id="name"></div>
+                <div >Email :</div>
+                <div id="email"></div>
+                <div>Password :</div>
+                <div id="pswd"></div>
+        
+        <button style="background-color: rgb(97, 97, 226);width: 190px; height: 30px;" onclick="gotoIndex()">Goto Registration Page</button>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+    <script>
+        let registrationData = window.localStorage.getItem("registrationdata");
+        let data = JSON.parse(registrationData);
+        
+        document.getElementById("name").innerHTML = data.name;
+        document.getElementById("email").innerHTML = data.email;
+        document.getElementById("pswd").innerHTML = data.pswd;
+
+        console.log("registration Page data", JSON.parse(registrationData));
+        function gotoIndex() {
+         location.replace("index.html")
+        }
+    
+    </script>
+</body>
+</html>
